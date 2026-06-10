@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Your Name — UI designer and web developer based in Kerala.">
+  <title>Anjalin Jacob — Developer Portfolio</title>
+
+  <!-- Google Fonts: Inter (same font as your Session 01 design) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Your stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <span class="nav-brand">Anjalin Jacob</span>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="home">
+    <div class="container">
+      <p class="hero-tag reveal">Hey, I&#8217;m</p>
+      <h1 class="hero-name reveal">Anjalin Jacob</h1>
+      <p class="hero-role reveal">UI Designer &amp; Web Developer &#8212; <span class="highlight">B.Tech CSE, Kerala</span></p>
+      <p class="hero-bio reveal">I design systems, build for the web, and automate the boring stuff. Currently learning in public with ZERO2DEV.</p>
+      <div class="hero-ctas reveal">
+        <a href="#projects" class="btn btn-primary">See My Projects</a>
+        <a href="https://www.figma.com/design/BWAyqzLjew46PwsF9BECkO/Tide---Task-Manager?node-id=5-3&t=DqXyT1NNDDmrF8RD-1" target="_blank" rel="noopener" class="btn btn-secondary">View Figma Design &#8599;</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="section-label">01 &#8212; Work</p>
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects-grid">
+
+          <!-- Project 1: Tide (your Session 01 work) -->
+          <article class="card reveal">
+            <span class="card-tag">UI / UX Design</span>
+            <h3 class="card-title">Tide</h3>
+            <p class="card-desc">A complete task-manager app design built in Figma: a token-based design system, seven connected screens, and a clickable prototype. My first end-to-end product design.</p>
+            <div class="card-meta">
+              <span class="chip">Figma</span>
+              <span class="chip">Design System</span>
+              <span class="chip">Prototype</span>
+            </div>
+            <a href="https://www.figma.com/design/BWAyqzLjew46PwsF9BECkO/Tide---Task-Manager?node-id=5-3&t=DqXyT1NNDDmrF8RD-1" target="_blank" rel="noopener" class="card-link">View prototype &#8599;</a>
+          </article>
+
+          <!-- Project 2: Folio (this site) -->
+          <article class="card reveal">
+            <span class="card-tag">Web Development</span>
+            <h3 class="card-title">Shelf-To-Chef</h3>
+            <p class="card-desc">A website which generates a quick and easy recipe based on ingredients available at your shelf. Backed up by Gemini AI, recipe suggestions which go along with your dietary preferences are created in real time.</p>
+            <div class="card-meta">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">AI Integration</span>
+            </div>
+            <a href="https://anjalinjacob.github.io/tink-her-hack-temp/" target="_blank" rel="noopener" class="card-link">View website &#8599;</a>
+          </article>
+
+          <!-- Project 3: placeholder for your Session 03 Python bot -->
+          <article class="card reveal">
+            <span class="card-tag">Web Development</span>
+            <h3 class="card-title">Folio</h3>
+            <p class="card-desc">This portfolio site. Hand-written semantic HTML, a CSS design system carried straight from my Figma tokens, and a dark-mode toggle in vanilla JavaScript. Deployed on Netlify.</p>
+            <div class="card-meta">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+            </div>
+            <a href="https://github.com/anjalinjacob/Folio" target="_blank" rel="noopener" class="card-link">View code &#8599;</a>
+          </article>
+
+        </div>
+        <article class="card reveal" id="live-preview">
+            <span class="card-tag">Live Preview</span>
+            <h3 class="card-title">Tide Prototype</h3>
+            <p class="card-desc">Click around the interactive prototype of my Tide design, built in Figma. Seven screens, connected with smart interactions and transitions.</p>
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="925" height="450" src="https://embed.figma.com/design/BWAyqzLjew46PwsF9BECkO/Tide---Task-Manager?node-id=5-3&embed-host=share" allowfullscreen></iframe>
+          </article>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <p class="section-label">02 &#8212; Toolkit</p>
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills-list">
+
+          <div class="skill reveal">
+            <div class="skill-head">
+              <span class="skill-name">Figma &amp; UI Design</span>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="--w: 85%; background: var(--primary);"></div>
+            </div>
+          </div>
+
+          <div class="skill reveal">
+            <div class="skill-head">
+              <span class="skill-name">Python</span>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="--w: 80%; background: var(--pri-high);"></div>
+            </div>
+          </div>
+
+
+          <div class="skill reveal">
+            <div class="skill-head">
+              <span class="skill-name">HTML &amp; CSS</span>
+              <span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="--w: 75%; background: var(--pri-low);"></div>
+            </div>
+          </div>
+
+          <div class="skill reveal">
+            <div class="skill-head">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-pct">55%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" style="--w: 55%; background: var(--pri-med);"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="section" id="blog">>
+      <div class="container">
+        <p class="section-label">03 &#8212; Learnings</p>
+        <h2 class="section-title">Blog</h2>
+        <p class="blog-lead">I write about my learning journey, projects, and the tech/design industry in general. Check out my latest posts below.</p>
+
+        <div class="blog-posts">
+          <article class="blog-post reveal">
+            <h3 class="blog-post-title">My first Hackathon Experience</h3>
+            <span class="blog-post-tag">28 February 2026</span>
+            <p class="blog-post-desc">How I got started with HTML, CSS, Javascript and AI integration using API Keys for my first website.</p>
+            <a href="#" class="blog-post-link">Read more &#8599;</a>
+          </article>
+        
+          <article class="blog-post reveal">
+            <h3 class="blog-post-title">How I Designed My First App in Figma</h3>
+            <span class="blog-post-tag">6 June 2026</span>
+            <p class="blog-post-desc">A behind-the-scenes look at my design process for Tide, my first end-to-end app design.</p>
+            <a href="#" class="blog-post-link">Read more &#8599;</a>
+          </article>
+
+          <article class="blog-post reveal">
+            <h3 class="blog-post-title">Building My Portfolio Site from Scratch</h3>
+            <span class="blog-post-tag">10 June 2026</span>
+            <p class="blog-post-desc">The learnings from coding this portfolio site and what I&#8217;ve learned about web development so far.</p>
+            <a href="#" class="blog-post-link">Read more &#8599;</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <p class="section-label">04 &#8212; Say Hello</p>
+        <h2 class="section-title">Contact</h2>
+        <p class="contact-lead">Open to internships, freelance design, and good conversations. The fastest way to reach me is email.</p>
+
+        <div class="contact-links">
+          <a href="mailto:anjalinjacob2007@gmail.com" class="contact-link">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">anjalinjacob2007@gmail.com</span>
+          </a>
+          <a href="https://github.com/anjalinjacob" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-label">GitHub</span>
+            <span class="contact-link-value">github.com/anjalinjacob &#8599;</span>
+          </a>
+          <a href="https://www.linkedin.com/in/anjalin-jacob-09a349387/" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">linkedin.com/in/anjalinjacob &#8599;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <p>Built from scratch with HTML, CSS &amp; JavaScript &#8212; ZERO2DEV 2026.</p>
+      <p class="footer-muted">&#169; 2026 Anjalin Jacob. Designed in Figma, coded by hand.</p>
+    </div>
+  </footer>
+
+  <!-- Back-to-top button (hidden until you scroll) -->
+  <button class="to-top" id="to-top" aria-label="Back to top">&#8593;</button>
+
+  <!-- Your JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+/* =========================================================
+   FOLIO — style.css
+   A portfolio site styled entirely from design tokens.
+   Section map:
+     1. Design tokens (:root)      5. Hero
+     2. Dark mode overrides        6. Buttons
+     3. Reset + base               7. Projects grid + cards
+     4. Navigation                 8. Skills / Contact / Footer
+                                    9. Back-to-top + reveal + responsive
+   ========================================================= */
+
+/* ---------- 1. DESIGN TOKENS ----------
+   Same hex codes as your Session 01 Figma Foundations page.
+   Define once here, use everywhere with var(--name). */
+:root {
+  /* Colours */
+  --primary:   #5A8FB0;   /* Color/Primary  — buttons, links, accents */
+  --ink:       #1a1a1a;   /* Color/Ink      — all body text */
+  --ink-muted: #6B6B6B;   /* Color/Ink-muted — secondary text */
+  --surface:   #FCFAF3;   /* Color/Surface  — page background */
+  --card:      #FFFFFF;   /* Color/Card     — card backgrounds */
+  --border:    #EFE9D8;   /* Color/Border   — lines, dividers */
+  --pri-high:  #C76A55;   /* Color/Priority/High */
+  --pri-med:   #C9A23A;   /* Color/Priority/Med */
+  --pri-low:   #7A9165;   /* Color/Priority/Low */
+
+  /* Type scale — matches your S01 text styles */
+  --display: clamp(2.2rem, 6vw, 3.6rem);
+  --h1: 2rem;
+  --h2: 1.6rem;
+  --h3: 1.2rem;
+  --body: 1rem;
+  --cap: 0.875rem;
+  --sm: 0.75rem;
+
+  /* Spacing — 8-point grid, in rem */
+  --s4: 0.25rem;
+  --s8: 0.5rem;
+  --s12: 0.75rem;
+  --s16: 1rem;
+  --s24: 1.5rem;
+  --s32: 2rem;
+  --s48: 3rem;
+  --s64: 4rem;
+
+  /* Corner radius */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+
+  /* Soft shadow (one shadow, used everywhere) */
+  --shadow: 0 4px 16px rgba(26, 26, 26, 0.06);
+}
+
+/* ---------- 2. DARK MODE ----------
+   JavaScript adds class="dark" to <body>.
+   Only the colour tokens change — everything else stays the same. */
+body.dark {
+  --primary:   #7FB3D5;
+  --ink:       #F5F1E4;
+  --ink-muted: #9BA3AC;
+  --surface:   #0F1419;
+  --card:      #1A2332;
+  --border:    rgba(255, 255, 255, 0.12);
+  --shadow:    0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- 3. RESET + BASE ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--surface);
+  color: var(--ink);
+  font-size: var(--body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Layout container — centres content, caps width */
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 var(--s24);
+}
+
+/* Section wrapper — consistent vertical rhythm */
+.section {
+  padding: var(--s64) 0;
+}
+
+.section-alt {
+  background-color: var(--card);
+}
+
+.section-label {
+  font-size: var(--sm);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: var(--s8);
+}
+
+.section-title {
+  font-size: var(--h1);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--s32);
+}
+
+/* ---------- 4. NAVIGATION ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.3s ease;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s16) var(--s24);
+}
+
+.nav-brand {
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--s24);
+}
+
+.nav-links a {
+  font-weight: 500;
+  color: var(--ink-muted);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.theme-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: var(--s4) var(--s12);
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ---------- 5. HERO ---------- */
+.hero {
+  padding: var(--s64) 0;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-tag {
+  font-size: var(--h3);
+  color: var(--ink-muted);
+}
+
+.hero-name {
+  font-size: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: var(--s8) 0;
+}
+
+.hero-role {
+  font-size: var(--h3);
+  color: var(--ink-muted);
+  margin-bottom: var(--s16);
+}
+
+.highlight {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.hero-bio {
+  max-width: 52ch;
+  color: var(--ink-muted);
+  margin-bottom: var(--s32);
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s16);
+}
+
+/* ---------- 6. BUTTONS ---------- */
+.btn {
+  display: inline-block;
+  padding: var(--s12) var(--s24);
+  border-radius: var(--r-md);
+  font-weight: 600;
+  font-size: var(--body);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.btn-secondary {
+  border: 2px solid var(--border);
+  color: var(--ink);
+}
+
+/* ---------- 7. PROJECTS GRID + CARDS ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s24);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s24);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-tag {
+  font-size: var(--sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.card-title {
+  font-size: var(--h3);
+  font-weight: 700;
+  margin: var(--s8) 0 var(--s12);
+}
+
+/* flex: 1 pushes everything below it to the bottom,
+   so all card footers line up at the same height. */
+.card-desc {
+  flex: 1;
+  color: var(--ink-muted);
+  font-size: var(--cap);
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s8);
+  margin: var(--s16) 0;
+}
+
+.chip {
+  font-size: var(--sm);
+  font-weight: 500;
+  padding: var(--s4) var(--s12);
+  border-radius: var(--r-pill);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--ink-muted);
+}
+
+.card-link {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+#live-preview {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s24);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: var(--s24);
+}
+
+iframe {
+  margin-top: var(--s16);
+}
+
+/* ---------- 8. SKILLS / BLOG / CONTACT / FOOTER ---------- */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s24);
+  max-width: 560px;
+}
+
+.skill-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--s8);
+  font-weight: 500;
+}
+
+.skill-pct {
+  color: var(--ink-muted);
+}
+
+.skill-track {
+  height: 8px;
+  background-color: var(--border);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  width: var(--w);
+  border-radius: var(--r-pill);
+}
+
+.blog-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s24);
+  margin-top: var(--s16);
+}
+
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s24);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-post:hover {
+  transform: translateY(-4px);
+}
+
+.blog-post-tag {
+  font-size: var(--sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.blog-post-title {
+  font-size: var(--h3);
+  font-weight: 700;
+  margin: var(--s8) 0 var(--s12);
+}
+.contact-lead {
+  max-width: 52ch;
+  color: var(--ink-muted);
+  margin-bottom: var(--s32);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s16);
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  padding: var(--s16) var(--s24);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background-color: var(--card);
+  min-width: 200px;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.contact-link:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.contact-link-label {
+  font-size: var(--sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.contact-link-value {
+  font-weight: 600;
+}
+
+.footer {
+  padding: var(--s48) 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: var(--cap);
+  background-color: var(--card);
+}
+
+.footer-muted {
+  font-size: var(--sm);
+  margin-top: var(--s8);
+}
+
+/* ---------- 9. BACK-TO-TOP + REVEAL + RESPONSIVE ---------- */
+
+/* Back-to-top button: hidden until JS adds .show */
+.to-top {
+  position: fixed;
+  bottom: var(--s24);
+  right: var(--s24);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--r-pill);
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Scroll reveal: elements start hidden, JS adds .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect users who prefer no motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Mobile: stack things, tighten spacing */
+@media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+    padding: var(--s48) 0;
+  }
+  .nav-links {
+    gap: var(--s16);
+  }
+  .nav-links a {
+    font-size: var(--cap);
+  }
+  .section {
+    padding: var(--s48) 0;
+  }
+  .contact-link {
+    width: 100%;
+  }
+}
