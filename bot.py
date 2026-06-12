@@ -41,11 +41,9 @@ def build_summary():
     #Triple-quoted strings span multiple Lines - great for formatted output
     summary = f"""
 --------------------------------
---------------------------------
     PULSE - Daily Summary 
     {today}
---------------------------------
---------------------------------
+================================
 
 WEATHER
   {weather}
@@ -53,8 +51,7 @@ WEATHER
 TODAY'S QUOTE 
   {quote}
 
--------------------------------
--------------------------------
+===============================
 """
     return summary
 
