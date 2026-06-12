@@ -4,6 +4,10 @@
 # APIs: both free, no API keys needed
 
 import requests
+import smtplib
+from email.mime.text import MIMEText
+import os
+
 from datetime import date
 
 # FUNCTION 1: Weather
@@ -31,12 +35,29 @@ def get_quote():
     except Exception as e:
         return f"Quote unavailable ({e}) "
 
+def get_fact():
+    """Fetch a random interesting fact."""
+    url = "https://uselessfacts.jsph.pl/api/v2/facts/random"
+
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+
+        data = response.json()
+
+        fact = data["text"]
+
+        return f"💡 Random Fact: {fact}"
+
+    except Exception as e:
+        return f"Fact unavailable ({e})"
 #FUNCTION 3: Build the summary
 def build_summary():
     """Assemble the full daily summary from all data sources.""" 
     today = date.today().strftime("%A, %d %B %Y") #e.g. Monday, 09 June 2626
     weather = get_weather() 
     quote = get_quote()  
+    fact = get_fact()
 
     #Triple-quoted strings span multiple Lines - great for formatted output
     summary = f"""
@@ -50,6 +71,9 @@ WEATHER
 
 TODAY'S QUOTE 
   {quote}
+
+FACT OF THE DAY
+  {fact}
 
 ===============================
 """
@@ -66,9 +90,25 @@ def run():
     with open("daily_summary.txt", "w", encoding="utf-8") as f:
         f.write(summary)
     print("Pulse ran successfully.")
+    send_email(summary)
 
 # Entry point guard
 
+def send_email(summary_text):
+    # Email configuration (replace with actual values)
+    sender = os.environ.get("EMAIL_SENDER")
+    receiver = os.environ.get("EMAIL_RECEIVER")
+    password = os.environ.get("EMAIL_PASSWORD")
+
+    msg = MIMEText(summary_text)
+    msg["Subject"] = "Your Daily Pulse Summary"
+    msg["From"] = sender
+    msg["To"] = receiver
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(sender, password)
+        server.send_message(msg)
+    print("Email sent.")
 #Only runs when you execute: python bot.py
 #Does NOT run when another file imports bot.py
 
