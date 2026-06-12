@@ -7,6 +7,7 @@ import requests
 import smtplib
 from email.mime.text import MIMEText
 import os
+import random
 
 from datetime import date
 
@@ -36,21 +37,27 @@ def get_quote():
         return f"Quote unavailable ({e}) "
 
 def get_fact():
-    """Fetch a random interesting fact."""
-    url = "https://uselessfacts.jsph.pl/api/v2/facts/random"
+    """Fetch an interesting historical fact for today's date."""
+    url = "https://history.muffinlabs.com/date"
 
     try:
         response = requests.get(url, timeout=10)
         response.raise_for_status()
 
         data = response.json()
+        events = data["data"]["Events"]
 
-        fact = data["text"]
+        # Choose a random event
+        event = random.choice(events)
 
-        return f"💡 Random Fact: {fact}"
+        year = event["year"]
+        fact = event["text"]
+
+        return f'On this day in {year}: {fact}'
 
     except Exception as e:
         return f"Fact unavailable ({e})"
+
 #FUNCTION 3: Build the summary
 def build_summary():
     """Assemble the full daily summary from all data sources.""" 

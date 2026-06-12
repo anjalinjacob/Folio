@@ -5,9 +5,12 @@
 ================================
 
 WEATHER
-  Thiruvananthapuram: 🌫️  +29°C
+  Thiruvananthapuram: 🌤️  +29°C
 
 TODAY'S QUOTE 
-  "Men trust their ears less than their eyes." - Herodotus
+  "Age is a very high price to pay for maturity." - William James
+
+FACT OF THE DAY
+  On this day in 1921: Mikhail Tukhachevsky orders the use of chemical weapons against the Tambov Rebellion, bringing an end to the peasant uprising.
 
 ===============================
